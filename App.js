@@ -8,6 +8,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-web";
 import Camera from "./assets/camera.png";
 import Home from "./assets/Screens/Home";
+import Info from "./assets/Screens/Info"
 
 const Tab = createBottomTabNavigator();
 export default function App() {
@@ -196,16 +197,7 @@ function MapsScreen() {
 }
 function InfoScreen() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "green",
-      }}
-    >
-      <Text>info screen</Text>
-    </View>
+    <Info/>
   );
 }
 const styles = StyleSheet.create({

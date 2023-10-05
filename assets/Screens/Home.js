@@ -30,6 +30,7 @@ const Profile = () => {
     <ScrollView
       style={{
         backgroundColor: "black",
+      
       }}
     >
       <ImageBackground
@@ -78,7 +79,6 @@ const Profile = () => {
         style={{
           backgroundColor: "white",
           borderRadius: 40,
-          marginHorizontal: 20,
           paddingVertical: 20,
           marginTop: 20,
           padding:40,
@@ -110,7 +110,6 @@ const Profile = () => {
         style={{
           backgroundColor: "white",
           borderRadius: 40,
-          marginHorizontal: 20,
           paddingVertical: 15,
           marginTop: 20,
           padding:30,
