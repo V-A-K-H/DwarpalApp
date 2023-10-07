@@ -101,9 +101,7 @@ export default class Home extends React.Component {
                 +91 7982640940
               </Text>
               <Card.Cover
-                source={{
-                  uri: "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
-                }}
+                source={require('.././Sandesh.jpg')}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -163,9 +161,7 @@ export default class Home extends React.Component {
                 +91 9458173450
               </Text>
               <Card.Cover
-                source={{
-                  uri: "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
-                }}
+                source={require('.././Shilpi.jpg')}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
