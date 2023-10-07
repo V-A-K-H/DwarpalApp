@@ -113,8 +113,9 @@ const Profile = () => {
           paddingVertical: 15,
           marginTop: 20,
           padding:30,
-          paddingBottom:50,
-          marginBottom:80
+          paddingBottom:100,
+          borderBottomRightRadius:0,
+          borderBottomLeftRadius:0
         }}
       >
       <TextInput

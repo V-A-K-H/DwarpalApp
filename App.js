@@ -9,7 +9,7 @@ import { TouchableOpacity } from "react-native-web";
 import Camera from "./assets/camera.png";
 import Home from "./assets/Screens/Home";
 import Info from "./assets/Screens/Info"
-
+import Maps from "./assets/Screens/Maps"
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
@@ -183,16 +183,7 @@ function CameraScreen() {
 }
 function MapsScreen() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "yellow",
-      }}
-    >
-      <Text>maps screen</Text>
-    </View>
+    <Maps/>
   );
 }
 function InfoScreen() {

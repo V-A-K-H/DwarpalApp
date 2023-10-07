@@ -30,7 +30,6 @@ export default class Home extends React.Component {
             height: 140,
             width: "100%",
             paddingHorizontal: 35,
-            
           }}
         >
           <View
@@ -46,7 +45,7 @@ export default class Home extends React.Component {
                 source={
                   "https://upload.wikimedia.org/wikipedia/en/e/ec/Birla_Institute_of_Applied_Sciences_logo.jpg"
                 }
-                style={{ width: 49, height: 49 ,margin:15}}
+                style={{ width: 49, height: 49, margin: 15 }}
               />
             </View>
             <Text
@@ -67,7 +66,7 @@ export default class Home extends React.Component {
             backgroundColor: "#FFF",
             borderTopLeftRadius: 40,
             borderTopRightRadius: 40,
-            height: 1000,
+            paddingBottom: 20,
             paddingHorizontal: 35,
             padding: 30,
           }}
@@ -92,7 +91,7 @@ export default class Home extends React.Component {
               }}
             >
               <Text>
-                <Text style={{ fontSize: 16, fontWeight: "700"}}>
+                <Text style={{ fontSize: 16, fontWeight: "700" }}>
                   Sandesh Tripathi
                 </Text>
                 {"\n"}
@@ -101,7 +100,7 @@ export default class Home extends React.Component {
                 +91 7982640940
               </Text>
               <Card.Cover
-                source={require('.././Sandesh.jpg')}
+                source={require(".././Sandesh.jpg")}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -161,7 +160,7 @@ export default class Home extends React.Component {
                 +91 9458173450
               </Text>
               <Card.Cover
-                source={require('.././Shilpi.jpg')}
+                source={require(".././Shilpi.jpg")}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -198,6 +197,78 @@ export default class Home extends React.Component {
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
+          </Card>
+          <Text style={{ fontSize: 18, margin: 14, fontWeight: "700" }}>
+            Developers
+          </Text>
+          
+          <Card
+            style={{
+              backgroundColor: "#FFF",
+              padding: 10,
+              shadow: 20,
+              marginBottom: 10,
+            }}
+          >
+            <Card.Content
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Card.Cover
+                source={require(".././Sandesh.jpg")}
+                style={{ width: 50, height: 50 }}
+              />
+              <Card.Cover
+                source={require(".././Sandesh.jpg")}
+                style={{ width: 50, height: 50 }}
+              />
+              <Card.Cover
+                source={require(".././Sandesh.jpg")}
+                style={{ width: 50, height: 50 }}
+              />
+              <Card.Cover
+                source={require(".././Sandesh.jpg")}
+                style={{ width: 50, height: 50 }}
+              />
+            </Card.Content>
+          </Card>
+          
+          <Card
+            style={{
+              backgroundColor: "#FFF",
+              padding: 18,
+              shadow: 20,
+              marginBottom: 10,
+            }}
+          >
+            <Card.Content
+              style={{
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+            <Text style={{ fontSize: 18, margin: 4, fontWeight: "700" }}>
+            About Dwarpal
+          </Text>
+              <Text style={{ fontSize: 15, margin: 4, fontWeight: "500" ,textAlign: 'center'}}>
+            The security system uses QR code scanning to track thge entry and exit of students in 
+            college, maintaing a record of their in and out history for monitoring a record of their
+             in and out history for monitoring and security purpose.
+          </Text>
+            </Card.Content>
+          </Card>
+          
+          <Card
+            style={{
+              padding: 10,
+              marginBottom: 25,
+            }}
+          >
+            
           </Card>
         </View>
         
