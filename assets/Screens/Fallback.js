@@ -4,6 +4,7 @@ import React from "react";
 const Fallback = () => {
 	return (
 		<View style={{ alignItems: "center" ,
+        marginTop:50
         }}>
 			<Image
 				source={"https://i.graphicmama.com/blog/wp-content/uploads/2016/12/06083212/gravity_drib2.gif"}
