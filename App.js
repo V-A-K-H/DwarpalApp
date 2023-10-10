@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, {useEffect} from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -12,8 +12,25 @@ import Info from "./assets/Screens/Info"
 import Maps from "./assets/Screens/Maps"
 import Todo from "./assets/Screens/Todo";
 import LoginPage from "./assets/Screens/LoginPage"
+import * as SecureStore from 'expo-secure-store'
 const Tab = createBottomTabNavigator();
 export default function App() {
+  const [auth,setAuth]=React.useState(false)
+  const getToken=async()=> {
+    const result=await SecureStore.getItemAsync('sessionUser')
+    console.log("the token is ", result)
+    setAuth(result?true:false)
+  }
+  useEffect(() => {
+    getToken()
+  }, [])
+  
+  if (!auth) {
+    return (
+       <LoginPage/>
+    )
+
+  }
   return (
     <NavigationContainer>
       <Tab.Navigator

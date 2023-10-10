@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import {React,useState,useEffect} from "react";
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import {
@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import API from "../../backendApi";
+import * as SecureStore from 'expo-secure-store'
 const w = Dimensions.get("window").width;
 const h = Dimensions.get("window").height;
 const data = [
@@ -25,27 +26,33 @@ const data = [
 ];
 
 const Profile = () => {
-  console.log(process.env,API)
-  // const fetchData = async () => {
-  //   try {
-  //     const result = await fetch(`${API}/StudentInfo/columns/name rollnum fathername fatherphonenum branch year photolink`, {
-  //       method: "GET",
-  //       mode: "cors",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "x-auth-token": localStorage.getItem('sessionUser')
-  //       },
-  //     })
-  //     const response = await result.json()
-  //     setUserData(response[0])
-  //   }
-  //   catch (err) {
-
-  //     console.log(err)
-  //     window.alert("Signed Out")
-  //   }
-  // }
+  const [userData,setUserData]= useState(null)
   const [value, setValue] = useState(null);
+  const fetchData = async () => {
+    const token = await SecureStore.getItemAsync('sessionUser')
+    console.log(token)
+    try {
+      const result = await fetch(`${API}/StudentInfo/columns/name rollnum fathername fatherphonenum branch year photolink`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": token
+        },
+      })
+      const response = await result.json()
+      setUserData(response[0])
+    }
+    catch (err) {
+      console.log(err)
+      window.alert("Signed Out")
+    }
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
+  
+  console.log(userData)
   return (
     <ScrollView
       style={{

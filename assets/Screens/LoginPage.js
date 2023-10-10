@@ -8,12 +8,41 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Alert
 } from "react-native";
 import AdminLogin from "./AdminLogin";
-
+import API from "../../backendApi";
+// import EncryptedStorage from 'react-native-encrypted-storage';
+import * as SecureStore from 'expo-secure-store'
 function LoginPage() {
-  const [text, onChangeText] = React.useState("Username or Email");
-  const [pwtext, pwChangeTex] = React.useState("Password");
+  const [email, onChangeEmail] = React.useState("Username or Email");
+  const [password, onChangePassword] = React.useState("Password");
+  const Login = async () => {
+    const auth="user"
+    try {
+      const result = await fetch(`${API}/SignIn`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email,password}),
+      })
+      console.log(result)
+      const response = await result.json()
+      
+      if (response.errors) Alert.alert("error",response.errors[0].msg)
+      if (response.jwtToken) {
+        SecureStore.setItemAsync('sessionUser', response.jwtToken)
+        SecureStore.setItemAsync('Auth', auth)
+      }
+    }
+    catch (err) {
+      console.log("the following are encountered", err)
+    }
+
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.view1}>
@@ -24,18 +53,18 @@ function LoginPage() {
       <View style={styles.view2}>
         <TextInput
           style={styles.email}
-          value={text}
-          onChangeText={onChangeText}
+          value={email}
+          onChangeText={(text) => onChangeEmail(text)}
         />
         <TextInput
           style={styles.email}
-          value={pwtext}
-          onChangeText={pwChangeTex}
+          value={password}
+          onChangeText={(text) => onChangePassword(text)}
         />
 
         {/* <Button style={styles.signinBtn} title='Sign in' color='#FC6B68' spacing={4}/> */}
 
-        <TouchableOpacity style={styles.buttonstyle}>
+        <TouchableOpacity style={styles.buttonstyle} onPress={Login}>
           <Text style={styles.signintxt}>Sign In</Text>
         </TouchableOpacity>
 
