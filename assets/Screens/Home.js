@@ -13,7 +13,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-
+import API from "../../backendApi";
 const w = Dimensions.get("window").width;
 const h = Dimensions.get("window").height;
 const data = [
@@ -25,6 +25,26 @@ const data = [
 ];
 
 const Profile = () => {
+  console.log(process.env,API)
+  // const fetchData = async () => {
+  //   try {
+  //     const result = await fetch(`${API}/StudentInfo/columns/name rollnum fathername fatherphonenum branch year photolink`, {
+  //       method: "GET",
+  //       mode: "cors",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "x-auth-token": localStorage.getItem('sessionUser')
+  //       },
+  //     })
+  //     const response = await result.json()
+  //     setUserData(response[0])
+  //   }
+  //   catch (err) {
+
+  //     console.log(err)
+  //     window.alert("Signed Out")
+  //   }
+  // }
   const [value, setValue] = useState(null);
   return (
     <ScrollView
@@ -113,9 +133,8 @@ const Profile = () => {
           paddingVertical: 15,
           marginTop: 20,
           padding:30,
-          paddingBottom:100,
-          borderBottomRightRadius:0,
-          borderBottomLeftRadius:0
+          paddingBottom:50,
+          marginBottom:80
         }}
       >
       <TextInput
