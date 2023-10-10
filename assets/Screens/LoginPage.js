@@ -9,15 +9,16 @@ import {
   View,
   Image,
 } from "react-native";
+import AdminLogin from "./AdminLogin";
 
-function LoginScreenOne() {
+function LoginPage() {
   const [text, onChangeText] = React.useState("Username or Email");
   const [pwtext, pwChangeTex] = React.useState("Password");
   return (
     <View style={styles.container}>
       <View style={styles.view1}>
-        <Text style={styles.heading1}>Hello Again!</Text>
-        <Text style={styles.para1}>Welcome back you've been missed!</Text>
+        <Text style={styles.heading1}>Login</Text>
+        <Text style={styles.para1}>Welcome to Dwarpal App</Text>
       </View>
 
       <View style={styles.view2}>
@@ -37,12 +38,6 @@ function LoginScreenOne() {
         <TouchableOpacity style={styles.buttonstyle}>
           <Text style={styles.signintxt}>Sign In</Text>
         </TouchableOpacity>
-
-        <Text style={styles.continue}>
-          Or continue with <Text style={{ color: "blue" }} onPress={() => Linking.openURL("")}>
-            Admin
-          </Text>
-        </Text>
 
         <View>
           <TouchableOpacity></TouchableOpacity>
@@ -125,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreenOne;
+export default LoginPage;
