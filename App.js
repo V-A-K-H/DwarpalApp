@@ -10,6 +10,7 @@ import Camera from "./assets/camera.png";
 import Home from "./assets/Screens/Home";
 import Info from "./assets/Screens/Info"
 import Maps from "./assets/Screens/Maps"
+import Todo from "./assets/Screens/Todo";
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
@@ -164,7 +165,7 @@ function HomeScreen() {
 }
 function TodoScreen() {
   return (
-    <Text>Camera screen</Text>
+    <Todo/>
   );
 }
 function CameraScreen() {
@@ -194,7 +195,7 @@ function InfoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },

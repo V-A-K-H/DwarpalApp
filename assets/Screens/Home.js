@@ -72,7 +72,7 @@ const Profile = () => {
         <LinearGradient
           colors={["rgba(0,0,0,1)", "transparent"]}
           style={{
-            transform: [{ rotate: "180deg" }],
+            transform: "rotate(180deg)",
             position: "absolute",
             left: 0,
             right: 0,
@@ -83,7 +83,7 @@ const Profile = () => {
         >
           <Text
             style={{
-              transform: [{ rotate: "-180deg" }],
+              transform:"rotate(180deg)",
               color: "#FFF",
               fontSize: 35,
               alignSelf: "center",
