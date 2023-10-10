@@ -11,7 +11,7 @@ import React, { useState } from "react";
 
 import { IconButton } from "react-native-paper";
 
-import { uuid } from "react-native-uuid";
+// import { uuid } from "react-native-uuid";
 
 import Fallback from "./Fallback";
 import { ScrollView } from "react-native-gesture-handler";
