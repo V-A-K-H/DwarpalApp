@@ -100,7 +100,7 @@ export default class Home extends React.Component {
                 +91 7982640940
               </Text>
               <Card.Cover
-                source={require(".././Sandesh.jpg")}
+                source={require(".././Faculty/Sandesh.jpg")}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -129,9 +129,7 @@ export default class Home extends React.Component {
                 +91 9411199555
               </Text>
               <Card.Cover
-                source={{
-                  uri: "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
-                }}
+                source={require(".././Faculty/Abhay.jpg")}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -160,7 +158,7 @@ export default class Home extends React.Component {
                 +91 9458173450
               </Text>
               <Card.Cover
-                source={require(".././Shilpi.jpg")}
+                source={require(".././Faculty/Shilpi.jpg")}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -191,9 +189,7 @@ export default class Home extends React.Component {
                 +91 9415171251
               </Text>
               <Card.Cover
-                source={{
-                  uri: "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
-                }}
+                source={require(".././Faculty/Neeraj.jpg")}
                 style={{ width: 120, height: 120 }}
               />
             </Card.Content>
@@ -219,20 +215,20 @@ export default class Home extends React.Component {
               }}
             >
               <Card.Cover
-                source={require(".././Sandesh.jpg")}
-                style={{ width: 50, height: 50 }}
+                source={require(".././Developers/raj.jpg")}
+                style={{ width: 55, height: 55 }}
               />
               <Card.Cover
-                source={require(".././Sandesh.jpg")}
-                style={{ width: 50, height: 50 }}
+                source={require(".././Developers/Roy.jpg")}
+                style={{ width: 55, height: 55 }}
               />
               <Card.Cover
-                source={require(".././Sandesh.jpg")}
-                style={{ width: 50, height: 50 }}
+                source={require(".././Developers/kittu.jpg")}
+                style={{ width: 55, height: 55 }}
               />
               <Card.Cover
-                source={require(".././Sandesh.jpg")}
-                style={{ width: 50, height: 50 }}
+                source={require(".././Developers/bhatt.jpg")}
+                style={{ width: 55, height: 55 }}
               />
             </Card.Content>
           </Card>
