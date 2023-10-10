@@ -11,6 +11,7 @@ import Home from "./assets/Screens/Home";
 import Info from "./assets/Screens/Info"
 import Maps from "./assets/Screens/Maps"
 import Todo from "./assets/Screens/Todo";
+import LoginPage from "./assets/Screens/LoginPage"
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
@@ -154,6 +155,7 @@ export default function App() {
         ></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
+    // <LoginPage/>
   );
 }
 
