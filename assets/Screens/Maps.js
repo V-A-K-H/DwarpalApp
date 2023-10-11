@@ -88,7 +88,34 @@ const ResData = () => {
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
     },
+    {
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
+    },
+    {
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
+
+    },
+    {
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
+
+    },
+    {
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
+
+    }
   ];
 
 
