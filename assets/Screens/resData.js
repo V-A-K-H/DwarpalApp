@@ -1,30 +1,3 @@
-// import React from "react";
-// import {
-//   View,
-//   Text,
-//   Image,
-//   ImageBackground,
-//   TouchableOpacity,
-// } from "react-native";
-
-// export default class Home extends React.Component {
-//   render() {
-//     return (
-//         <View style={{ alignItems: "center" ,
-//         backgroundColor:"white",
-//         height:"100%"
-//     }}>
-//         <Image
-//             source={"https://cdn.dribbble.com/users/1791559/screenshots/4465351/wip.gif"}
-//             style={{ height: 600, width: 600 }}
-//         />
-//         <Text>Work in Progress...</Text>
-//     </View>
-//     );
-
-//   }
-// }
-
 
 import { FlatList, Button, StyleSheet, Modal, Text, Image, View, Linking } from 'react-native';
 import { useState } from 'react';
@@ -52,43 +25,7 @@ const ResData = () => {
       contact: 70,
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
-    },
-    {
-      name: "Variety Sweets and Restaurant",
-      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
-      contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
-    },
-    {
-      name: "Chai Shai Castle",
-      img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
-      contact: 9582543696,
-      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
-
-    },
-    {
-      name: "Variety Sweets and Restaurant",
-      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
-      contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
-    },
-    {
-      name: "Chai Shai Castle",
-      img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
-      contact: 9582543696,
-      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
-
-    },
-    {
-      name: "Variety Sweets and Restaurant",
-      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
-      contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
-    },
-
+    }
   ];
 
 
@@ -124,27 +61,24 @@ const ResData = () => {
                 />
               </View>
               <View style={styles.view2}>
-                <Text style={styles.name}>{element.item.name.length > 17
-                  ? `${element.item.name.substring(0, 17)}...`
+                <Text style={styles.name}>{element.item.name.length > 20
+                  ? `${element.item.name.substring(0, 20)}...`
                   : element.item.name}
                 </Text>
                 <View style={styles.view3}>
-                  <View style={styles.button1}>
                   <Button
-                    
+                    style={styles.button1}
                     onPress={() => setSelectedItem(element.item.name)}
                     title="Menu"
                     color="#800080"
                   />
-                  </View>
 
-                  <View style = {styles.button1} >
                   <Button
+                    style={styles.button1}
                     onPress={() => calling(element.item.contact)}
                     title="Call Now"
                     color="green"
                   />
-                  </View>
 
 
                 </View>
@@ -153,9 +87,9 @@ const ResData = () => {
             </View>
             {isItemSelected && (
                 <View style={styles.container}>
-                  <Modal animationType="slide" transparent={false} visible={isItemSelected}>
+                  <Modal animationType="slide" transparent={true} visible={isItemSelected}>
                     <View style={styles.modalContainer}>
-                      <Image source={{ uri: element.item.menu }} style={styles.menu} />
+                      <Image source={{ uri: element.item.menu }} style={styles.image1} />
                       <Button title="Close" color = 'red' style={styles.close} onPress={closeImage} />
                     </View>
                   </Modal>
@@ -179,19 +113,18 @@ const styles = StyleSheet.create({
     height: '80%',
     width: 120,
   },
-  menu: {
-    height: 450,
+  image1: {
+    height: 350,
     width: 350,
     alignSelf: 'center',
-    justifyContent: 'center',
   },
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'red'
   },
   button1: {
-    marginRight: 20,
+    marginLeft: 10,
   },
   view: {
     width: '100%',
@@ -199,8 +132,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     height: 90,
-    marginLeft: 5,
-    marginRight: 5,
+    marginLeft: 2,
+    marginRight: 2,
     shadowOffset: {width: 2, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 10,
@@ -226,17 +159,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   close: {
-    width: '100%',
+    width: 100,
   },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%'
-  },
-  modalContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 50,
   }
 
 
