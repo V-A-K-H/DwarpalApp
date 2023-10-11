@@ -259,7 +259,7 @@ const Profile = () => {
             editable={false}
             style={styles.input}
             placeholder={userData.fathername?userData.fathername:"Father Name"}
-          />
+          multiline/>
         </View>
         <View
           style={{
