@@ -15,16 +15,24 @@ import LoginPage from "./assets/Screens/LoginPage"
 import * as SecureStore from 'expo-secure-store'
 const Tab = createBottomTabNavigator();
 export default function App() {
+  const [loading, setLoading] = React.useState(true);
   const [auth,setAuth]=React.useState(false)
   const getToken=async()=> {
-    const result=await SecureStore.getItemAsync('sessionUser')
+    const result=localStorage.getItem('sessionUser')
     console.log("the token is ", result)
     setAuth(result?true:false)
+    setLoading(false)
   }
+
   useEffect(() => {
     getToken()
   }, [])
-  
+  if (loading) {
+    // Loading state: render a loading indicator or a blank screen
+    return (
+      <Text>Loading...</Text>
+    );
+  }
   if (!auth) {
     return (
        <LoginPage/>

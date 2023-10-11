@@ -17,6 +17,7 @@ import * as SecureStore from 'expo-secure-store'
 function LoginPage() {
   const [email, onChangeEmail] = React.useState("Username or Email");
   const [password, onChangePassword] = React.useState("Password");
+  const [loaded,setLoaded]=React.useState(false)
   const Login = async () => {
     const auth="user"
     try {
@@ -33,8 +34,9 @@ function LoginPage() {
       
       if (response.errors) Alert.alert("error",response.errors[0].msg)
       if (response.jwtToken) {
-        SecureStore.setItemAsync('sessionUser', response.jwtToken)
-        SecureStore.setItemAsync('Auth', auth)
+        localStorage.setItem('sessionUser', response.jwtToken)
+        localStorage.setItem('Auth', auth)
+        setLoaded(true)
       }
     }
     catch (err) {

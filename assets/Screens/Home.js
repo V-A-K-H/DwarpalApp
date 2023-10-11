@@ -1,4 +1,4 @@
-import {React,useState,useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import {
@@ -26,10 +26,10 @@ const data = [
 ];
 
 const Profile = () => {
-  const [userData,setUserData]= useState(null)
+  const [userData, setUserData] = useState(null)
   const [value, setValue] = useState(null);
   const fetchData = async () => {
-    const token = await SecureStore.getItemAsync('sessionUser')
+    const token = localStorage.getItem('sessionUser')
     console.log(token)
     try {
       const result = await fetch(`${API}/StudentInfo/columns/name rollnum fathername fatherphonenum branch year photolink`, {
@@ -51,13 +51,13 @@ const Profile = () => {
   useEffect(() => {
     fetchData()
   }, [])
-  
+
   console.log(userData)
   return (
     <ScrollView
       style={{
         backgroundColor: "black",
-      
+
       }}
     >
       <ImageBackground
@@ -90,48 +90,48 @@ const Profile = () => {
         >
           <Text
             style={{
-              transform:"rotate(180deg)",
+              transform: "rotate(180deg)",
               color: "#FFF",
               fontSize: 35,
               alignSelf: "center",
               fontFamily: "Montserrat_700Bold",
             }}
           >
-            Kritik Srivastava
+            {userData && userData.name}
           </Text>
         </LinearGradient>
       </ImageBackground>
-      
+
       <View
         style={{
           backgroundColor: "white",
           borderRadius: 40,
           paddingVertical: 20,
           marginTop: 20,
-          padding:40,
+          padding: 40,
         }}
       >
         <Dropdown
-        style={styles. dropdown}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        data={data}
-        search
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        placeholder="Purpose"
-        searchPlaceholder="Search..."
-        value={value}
-        onChange={item => {
-          setValue(item.value);
-        }}
-        renderLeftIcon={() => (
-          <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
-        )}
-      />
+          style={styles.dropdown}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
+          data={data}
+          search
+          maxHeight={300}
+          labelField="label"
+          valueField="value"
+          placeholder="Purpose"
+          searchPlaceholder="Search..."
+          value={value}
+          onChange={item => {
+            setValue(item.value);
+          }}
+          renderLeftIcon={() => (
+            <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
+          )}
+        />
       </View>
       <View
         style={{
@@ -139,43 +139,29 @@ const Profile = () => {
           borderRadius: 40,
           paddingVertical: 15,
           marginTop: 20,
-          padding:30,
-          paddingBottom:50,
-          marginBottom:80
+          padding: 30,
+          paddingBottom: 50,
+          marginBottom: 80
         }}
       >
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-      />
-       <TextInput
-        style={styles.input}
-        placeholder="B-Tech"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="CSE"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="3"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Roll Number"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Father Name"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Father Phone Number"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Alternate Phone Number"
-      />
+        {
+          userData ?Object.keys(userData).map((elem, index) => {
+            if (elem !== "_id") {
+              return (
+                <TextInput
+                editable={false}
+                  key={index}
+                  style={styles.input}
+                  placeholder={userData[elem]}
+                />
+              );
+            }
+            return null;  // Return null for the elements you don't want to render
+          }): <Text> Loading</Text>
+          
+        }
+
+
       </View>
     </ScrollView>
   );
@@ -209,10 +195,11 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    fontSize:16,
+    fontSize: 16,
     margin: 10,
     borderWidth: 0,
-    borderBottomWidth:2,
+    borderBottomWidth: 2,
     padding: 10,
+    color: 'black'
   },
 });
