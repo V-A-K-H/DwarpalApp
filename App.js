@@ -30,7 +30,15 @@ export default function App() {
   if (loading) {
     // Loading state: render a loading indicator or a blank screen
     return (
-      <Text>Loading...</Text>
+      <View style={{ alignItems: "center" ,
+        marginTop:60,
+        backgroundColor:'#eeeeee'
+        }}>
+			<Image
+				source={"https://cdn.dribbble.com/users/711094/screenshots/3288010/sean_tiffonnet_loader_360learning.gif"}
+				style={{ height: 600, width: 600 }}
+			/>
+		</View>
     );
   }
   if (!auth) {
@@ -117,7 +125,7 @@ export default function App() {
                   style={{
                     width: 60,
                     height: 60,
-                    backgroundColor:"red",
+                    backgroundColor:"#154785",
                     borderRadius: "50%",
                     justifyContent: "center",
                     alignItems: "center",

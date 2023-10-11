@@ -22,7 +22,7 @@ export default class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         style={{
           height: "100%",
-          backgroundColor: "#044244",
+          backgroundColor: "#154785",
         }}
       >
         <View
@@ -40,20 +40,14 @@ export default class Home extends React.Component {
               alignItems: "center",
             }}
           >
-            <View style={{}}>
-              <Image
-                source={
-                  "https://upload.wikimedia.org/wikipedia/en/e/ec/Birla_Institute_of_Applied_Sciences_logo.jpg"
-                }
-                style={{ width: 49, height: 49, margin: 15 }}
-              />
-            </View>
+            
             <Text
               style={{
                 alignItems: "flex-end",
                 fontFamily: "Bold",
                 fontSize: 18,
                 color: "#FFF",
+                fontWeight: 800
               }}
             >
               Birla Institute of Applied Sciences, Bhimtal

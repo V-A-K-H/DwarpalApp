@@ -10,13 +10,12 @@ import {
   Image,
   Alert
 } from "react-native";
-import AdminLogin from "./AdminLogin";
 import API from "../../backendApi";
 // import EncryptedStorage from 'react-native-encrypted-storage';
 import * as SecureStore from 'expo-secure-store'
 function LoginPage() {
-  const [email, onChangeEmail] = React.useState("Username or Email");
-  const [password, onChangePassword] = React.useState("Password");
+  const [email, onChangeEmail] = React.useState("");
+  const [password, onChangePassword] = React.useState("");
   const [loaded,setLoaded]=React.useState(false)
   const Login = async () => {
     const auth="user"

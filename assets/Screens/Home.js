@@ -32,7 +32,7 @@ const Profile = () => {
     const token = localStorage.getItem('sessionUser')
     console.log(token)
     try {
-      const result = await fetch(`${API}/StudentInfo/columns/name rollnum fathername fatherphonenum branch year photolink`, {
+      const result = await fetch(`${API}/StudentInfo/columns/name phonenum rollnum fathername fatherphonenum branch year photolink`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -54,7 +54,16 @@ const Profile = () => {
 
   if (!userData){
     return (
-      <Text>Loading</Text>
+      <View style={{ alignItems: "center" ,
+        marginTop:60,
+        backgroundColor:'#eeeeee'
+        }}>
+			<Image
+				source={"https://cdn.dribbble.com/users/711094/screenshots/3288010/sean_tiffonnet_loader_360learning.gif"}
+				style={{ height: 600, width: 600 }}
+			/>
+			
+		</View>
     )
   }
   return (
@@ -140,17 +149,17 @@ const Profile = () => {
       <View
         style={{
           backgroundColor: "white",
-          borderRadius: 40,
+          borderTopLeftRadius:40,
+          borderTopRightRadius:40,
           paddingVertical: 15,
           marginTop: 20,
           padding: 30,
-          paddingBottom: 50,
-          marginBottom: 80
+          paddingBottom: 100,
         }}
       >
         {
           Object.keys(userData).map((elem, index) => {
-            if (elem !== "_id" && elem!="photolink") {
+            if (elem !== "_id" && elem!="photolink" && elem!="name" ) {
               return (
                 <TextInput
                   editable={false}
