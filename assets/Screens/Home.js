@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
-import { Dropdown } from 'react-native-element-dropdown';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import { Dropdown } from "react-native-element-dropdown";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import {
   ImageBackground,
   Dimensions,
@@ -14,63 +14,68 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import API from "../../backendApi";
-import * as SecureStore from 'expo-secure-store'
+import * as SecureStore from "expo-secure-store";
 const w = Dimensions.get("window").width;
 const h = Dimensions.get("window").height;
 const data = [
-  { label: 'Market', value: '1' },
-  { label: 'Home', value: '2' },
-  { label: 'Hospital', value: '3' },
-  { label: 'Mandir', value: '4' },
-  { label: 'Exam', value: '5' },
+  { label: "Market", value: "1" },
+  { label: "Home", value: "2" },
+  { label: "Hospital", value: "3" },
+  { label: "Mandir", value: "4" },
+  { label: "Exam", value: "5" },
 ];
 
 const Profile = () => {
-  const [userData, setUserData] = useState(null)
+  const [userData, setUserData] = useState(null);
   const [value, setValue] = useState(null);
   const fetchData = async () => {
-    const token = localStorage.getItem('sessionUser')
-    console.log(token)
+    const token = localStorage.getItem("sessionUser");
+    console.log(token);
     try {
-      const result = await fetch(`${API}/StudentInfo/columns/name phonenum rollnum fathername fatherphonenum branch year photolink`, {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          "x-auth-token": token
-        },
-      })
-      const response = await result.json()
-      setUserData(response[0])
+      const result = await fetch(
+        `${API}/StudentInfo/columns/name phonenum rollnum fathername fatherphonenum branch year photolink`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": token,
+          },
+        }
+      );
+      const response = await result.json();
+      setUserData(response[0]);
+    } catch (err) {
+      console.log(err);
+      window.alert(err);
     }
-    catch (err) {
-      console.log(err)
-      window.alert(err)
-    }
-  }
+  };
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  if (!userData){
+  if (!userData) {
     return (
-      <View style={{ alignItems: "center" ,
-        marginTop:60,
-        backgroundColor:'#eeeeee'
-        }}>
-			<Image
-				source={"https://cdn.dribbble.com/users/711094/screenshots/3288010/sean_tiffonnet_loader_360learning.gif"}
-				style={{ height: 600, width: 600 }}
-			/>
-			
-		</View>
-    )
+      <View
+        style={{
+          alignItems: "center",
+          marginTop: 60,
+          backgroundColor: "#eeeeee",
+        }}
+      >
+        <Image
+          source={
+            "https://cdn.dribbble.com/users/711094/screenshots/3288010/sean_tiffonnet_loader_360learning.gif"
+          }
+          style={{ height: 600, width: 600 }}
+        />
+      </View>
+    );
   }
   return (
     <ScrollView
       style={{
         backgroundColor: "black",
-
       }}
     >
       <ImageBackground
@@ -87,8 +92,7 @@ const Profile = () => {
             marginTop: 60,
             alignItems: "center",
           }}
-        >
-        </View>
+        ></View>
         <LinearGradient
           colors={["rgba(0,0,0,1)", "transparent"]}
           style={{
@@ -138,43 +142,145 @@ const Profile = () => {
           placeholder="Purpose"
           searchPlaceholder="Search..."
           value={value}
-          onChange={item => {
+          onChange={(item) => {
             setValue(item.value);
           }}
           renderLeftIcon={() => (
-            <AntDesign style={styles.icon} color="black" name="Safety" size={20} />
+            <AntDesign
+              style={styles.icon}
+              color="black"
+              name="Safety"
+              size={20}
+            />
           )}
         />
       </View>
       <View
         style={{
           backgroundColor: "white",
-          borderTopLeftRadius:40,
-          borderTopRightRadius:40,
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
           paddingVertical: 15,
           marginTop: 20,
           padding: 30,
-          paddingBottom: 100,
+          paddingBottom: 120,
         }}
       >
-        {
-          Object.keys(userData).map((elem, index) => {
-            if (elem !== "_id" && elem!="photolink" && elem!="name" ) {
-              return (
-                <TextInput
-                  editable={false}
-                  key={index}
-                  style={styles.input}
-                  placeholder={userData[elem]}
-                />
-              );
-            }
-            return null;  // Return null for the elements you don't want to render
-          })
-
-        }
-
-
+      <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            editable={false}
+            style={styles.input1}
+            placeholder={"Phone Number :"}
+          />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder={userData.phonenum?userData.phonenum:"Phone Number"}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            editable={false}
+            style={styles.input1}
+            placeholder={"Roll Number :"}
+          />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder={userData.rollnum ? userData.rollnum : "Roll Number"}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            editable={false}
+            style={styles.input1}
+            placeholder={"Branch :"}
+          />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder={userData.branch?userData.branch:"branch"}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            editable={false}
+            style={styles.input1}
+            placeholder={"Year :"}
+          />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder={userData.year?userData.year:"Year"}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            editable={false}
+            style={styles.input1}
+            placeholder={"Father Name :"}
+          />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder={userData.fathername?userData.fathername:"Father Name"}
+          />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            editable={false}
+            style={styles.input1}
+            placeholder={"Guardian No :"}
+          />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder={userData.fatherphonenum?userData.fatherphonenum:"Father Phone Number"}
+          />
+        </View>
+        
       </View>
     </ScrollView>
   );
@@ -186,7 +292,7 @@ const styles = StyleSheet.create({
   dropdown: {
     margin: 10,
     height: 50,
-    borderBottomColor: 'black',
+    borderBottomColor: "black",
     borderBottomWidth: 2,
   },
   icon: {
@@ -208,11 +314,25 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
+    width:"50%",
     fontSize: 16,
-    margin: 10,
+    marginVertical:10,
     borderWidth: 0,
     borderBottomWidth: 2,
     padding: 10,
-    color: 'black'
+    color: "black",
+    textTransform: "uppercase",
+  },
+  input1: {
+    height: 50,
+    width:"50%",
+    fontSize: 16,
+    marginVertical:10,
+    borderWidth: 0,
+    borderBottomWidth: 2,
+    padding: 10,
+    color: "black",
+    fontWeight:600
+
   },
 });
