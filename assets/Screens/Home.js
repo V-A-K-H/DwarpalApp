@@ -44,7 +44,6 @@ const Profile = () => {
       setUserData(response[0])
     }
     catch (err) {
-      console.log(err)
       window.alert("Signed Out")
     }
   }
@@ -52,7 +51,11 @@ const Profile = () => {
     fetchData()
   }, [])
 
-  console.log(userData)
+  if (!userData){
+    return (
+      <Text>Loading</Text>
+    )
+  }
   return (
     <ScrollView
       style={{
@@ -61,7 +64,7 @@ const Profile = () => {
       }}
     >
       <ImageBackground
-        source={"https://raw.githubusercontent.com/InternCore/InternCore-Main-Website/main/img/kritik.JPG"}
+        source={userData.photolink}
         style={{
           height: 0.55 * h,
         }}
@@ -97,7 +100,7 @@ const Profile = () => {
               fontFamily: "Montserrat_700Bold",
             }}
           >
-            {userData && userData.name}
+            {userData.name}
           </Text>
         </LinearGradient>
       </ImageBackground>
@@ -145,11 +148,11 @@ const Profile = () => {
         }}
       >
         {
-          userData ?Object.keys(userData).map((elem, index) => {
+          Object.keys(userData).map((elem, index) => {
             if (elem !== "_id") {
               return (
                 <TextInput
-                editable={false}
+                  editable={false}
                   key={index}
                   style={styles.input}
                   placeholder={userData[elem]}
@@ -157,8 +160,8 @@ const Profile = () => {
               );
             }
             return null;  // Return null for the elements you don't want to render
-          }): <Text> Loading</Text>
-          
+          })
+
         }
 
 
