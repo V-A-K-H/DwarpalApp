@@ -150,7 +150,7 @@ const Profile = () => {
       >
         {
           Object.keys(userData).map((elem, index) => {
-            if (elem !== "_id" || elem!="photolink") {
+            if (elem !== "_id" && elem!="photolink") {
               return (
                 <TextInput
                   editable={false}
