@@ -44,7 +44,8 @@ const Profile = () => {
       setUserData(response[0])
     }
     catch (err) {
-      window.alert("Signed Out")
+      console.log(err)
+      window.alert(err)
     }
   }
   useEffect(() => {
@@ -149,7 +150,7 @@ const Profile = () => {
       >
         {
           Object.keys(userData).map((elem, index) => {
-            if (elem !== "_id") {
+            if (elem !== "_id" || elem!="photolink") {
               return (
                 <TextInput
                   editable={false}
