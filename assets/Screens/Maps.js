@@ -137,17 +137,19 @@ const ResData = () => {
         style={styles.box}
       />
   </View> */}
-    
+    <View style = {{paddingTop: 20, marginLeft: 10, marginRight: 10, borderRadius: 6, backgroundColor: '#154785'}}>
+    <Text style={{ fontSize: 22, marginBottom:15, fontWeight: "700", alignSelf:'center', }}>
+            Restraunts you may visit
+          </Text>
+    </View>
     <ScrollView style={{
             paddingBottom:100,
             paddingLeft: 10,
             paddingTop: 5,
             paddingRight: 10,
-            backgroundColor: "white",
+            // backgroundColor: "#154785",
+            
           }}>
-            <Text style={{ fontSize: 22, marginBottom:15, fontWeight: "700", alignSelf:'center', }}>
-            Restraunts you may visit
-          </Text>
     <FlatList
       data={names}
       renderItem={(element) => {
@@ -156,6 +158,7 @@ const ResData = () => {
         return (
           <>
 
+            <View>
             <View style={styles.view}>
               {/* <View style={styles.view1}>
                 <Image style={styles.image}
@@ -202,6 +205,7 @@ const ResData = () => {
                   </Modal>
                 </View>
               )}
+            </View>
           </>
         );
       }}
