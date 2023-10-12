@@ -30,6 +30,7 @@ import { FlatList, Button, StyleSheet, Modal, Text, Image, View, Linking } from 
 import { useState } from 'react';
 import { IconButton } from 'react-native-paper';
 import { FontAwesome5 } from "@expo/vector-icons";
+// import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { ScrollView } from 'react-native-gesture-handler';
 // import { ReactBingmaps } from 'react-bingmaps';
 // import BingMapsView from 'react-native-bing-maps';
@@ -170,24 +171,26 @@ const ResData = () => {
                 </Text>
                 <View style={styles.view3}>
                   <View style={styles.button1}>
-                  <IconButton  
-                    onPress={() => setSelectedItem(element.item.name)}
-                    icon="menu"
-                  //   icon={<FontAwesome5
-                  //     name="home"
-                  //     size={22}
-                  //     color= 'black'
-                  //   ></FontAwesome5>}
-                    iconColor="black"
-                  />
+                
+                    
+              
+                    < FontAwesome5
+                      name ="bars"
+                      size={22}
+                      color= 'black'
+                      onPress={() => setSelectedItem(element.item.name)}
+                    ></FontAwesome5>
+              
+                
                   </View>
 
                   <View style = {styles.button1} >
-                  <IconButton
+                  <FontAwesome5
                     onPress={() => calling(element.item.contact)}
-                    icon= "call-split"
-                    iconColor = "black"
-                  />
+                    name = "phone-alt"
+                    size = {22}
+                    Color = "black"
+                  ></FontAwesome5>
                   </View>
                 </View>
 
@@ -198,8 +201,8 @@ const ResData = () => {
                   <Modal animationType="slide" transparent={true} visible={isItemSelected}>
                     <View style={styles.modalContainer}>
                       <Image source={{ uri: element.item.menu }} style={styles.menu} />
-                      <IconButton
-                       icon="cancel" iconColor = 'red' size = {28} style={styles.close} onPress={closeImage} />
+                      <FontAwesome5
+                       name ="times-circle" Color = 'red' size = {35} style={styles.close} onPress={closeImage} />
                     </View>
                   </Modal>
                 </View>
@@ -267,7 +270,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   close: {
-    width: '100%',
+    // width: '100%',
+    alignSelf: 'center',
+    color: 'red'
   },
   container: {
     justifyContent: 'center',
@@ -275,6 +280,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   modalContainer: {
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 50,
