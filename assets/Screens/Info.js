@@ -25,7 +25,29 @@ export default class Home extends React.Component {
           backgroundColor: "#154785",
         }}
       >
-        
+        <View
+          style={{
+            height: 150,
+            width: "100%",
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              style={{
+                height:200,
+                width:"100%"
+              }}
+              source={{uri:"https://www.birlainstitute.co.in/Pictures/img-building.webp"}}
+            />
+          </View>
+        </View>
 
         <View
           style={{

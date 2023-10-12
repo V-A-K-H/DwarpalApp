@@ -141,9 +141,8 @@ const ResData = () => {
       >
         <View
           style={{
-            height: 140,
+            height: 200,
             width: "100%",
-            paddingHorizontal: 35,
           }}
         >
           <View
@@ -154,17 +153,13 @@ const ResData = () => {
               alignItems: "center",
             }}
           >
-            <Text
+            <Image
               style={{
-                alignItems: "flex-end",
-                fontFamily: "Bold",
-                fontSize: 18,
-                color: "#FFF",
-                fontWeight: 800,
+                height:300,
+                width:"100%"
               }}
-            >
-              Birla Institute of Applied Sciences, Bhimtal
-            </Text>
+              source={{uri:"https://ik.imagekit.io/shortpedia/Voices/wp-content/uploads/2022/08/Bhimtal-lake-1200x900-1.jpg"}}
+            />
           </View>
         </View>
         <View
