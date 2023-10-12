@@ -34,12 +34,14 @@ import {
   Image,
   View,
   Linking,
+  TouchableHighlight,
 } from "react-native";
 import { useState } from "react";
 import { IconButton } from "react-native-paper";
 import { FontAwesome5 } from "@expo/vector-icons";
 // import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { ScrollView } from "react-native-gesture-handler";
+// import { TouchableHighlight } from "react-native-web";
 // import { ReactBingmaps } from 'react-bingmaps';
 // import BingMapsView from 'react-native-bing-maps';
 
@@ -215,6 +217,8 @@ const ResData = () => {
                     >
                       {element.item.name}
                     </Text>
+
+                    <TouchableHighlight onPress={() => setSelectedItem(element.item.name)}>
                     <Image
                       style={{
                         height: 50,
@@ -222,9 +226,10 @@ const ResData = () => {
                         marginHorizontal: 10,
                       }}
                       source={require(".././Icons/menu.gif")}
-                      onPress={() => setSelectedItem(element.item.name)}
                     />
+                    </TouchableHighlight>
 
+                    <TouchableHighlight onPress={() => calling(element.item.contact)}>
                     <Image
                       style={{
                         height: 50,
@@ -232,8 +237,9 @@ const ResData = () => {
                         marginHorizontal: 10,
                       }}
                       source={require(".././Icons/telephone.gif")}
-                      onPress={() => calling(element.item.contact)}
+                      
                     />
+                    </TouchableHighlight>
                   </View>
                   {isItemSelected && (
                     <View style={styles.container}>
@@ -343,6 +349,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 50,
+    flex: 1,
   },
 });
 
