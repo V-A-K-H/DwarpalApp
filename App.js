@@ -43,7 +43,7 @@ export default function App() {
   }
   if (!auth) {
     return (
-       <LoginPage/>
+       <LoginPage setAuth={setAuth}/>
     )
 
   }

@@ -13,7 +13,7 @@ import {
 import API from "../../backendApi";
 // import EncryptedStorage from 'react-native-encrypted-storage';
 import * as SecureStore from 'expo-secure-store'
-function LoginPage() {
+function LoginPage({setAuth}) {
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   const [loaded,setLoaded]=React.useState(false)
@@ -36,11 +36,13 @@ function LoginPage() {
         localStorage.setItem('sessionUser', response.jwtToken)
         localStorage.setItem('Auth', auth)
         setLoaded(true)
+        setAuth(true)
       }
     }
     catch (err) {
       console.log("the following are encountered", err)
       Alert.alert(err)
+      setAuth(false)
     }
 
   }
