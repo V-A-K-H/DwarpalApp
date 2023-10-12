@@ -118,11 +118,12 @@ const styles = StyleSheet.create({
   email: {
     height: 55,
     margin: 12,
+    fontSize: 22,
     borderWidth: 0,
     padding: 10,
     borderRadius: 8,
     backgroundColor: "white",
-    color: "#AFADAD",
+    color: "black",
   },
 
   fogPw: {

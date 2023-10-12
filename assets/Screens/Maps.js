@@ -157,35 +157,30 @@ const ResData = () => {
           <>
 
             <View style={styles.view}>
-              <View style={styles.view1}>
+              {/* <View style={styles.view1}>
                 <Image style={styles.image}
                   source={{
                     uri: `${element.item.img}`
                   }}
                 />
-              </View>
+              </View> */}
               <View style={styles.view2}>
-                <Text style={styles.name}>{element.item.name.length > 17
-                  ? `${element.item.name.substring(0, 17)}...`
+                <Text style={styles.name}>{element.item.name.length > 20
+                  ? `${element.item.name.substring(0, 20)}...`
                   : element.item.name}
                 </Text>
                 <View style={styles.view3}>
                   <View style={styles.button1}>
-                
-                    
-              
-                    < FontAwesome5
+                    < FontAwesome5 style = {styles.menuIcon}
                       name ="bars"
                       size={22}
                       color= 'black'
                       onPress={() => setSelectedItem(element.item.name)}
-                    ></FontAwesome5>
-              
-                
+                    ></FontAwesome5>  
                   </View>
 
                   <View style = {styles.button1} >
-                  <FontAwesome5
+                  <FontAwesome5 style = {styles.callIcon}
                     onPress={() => calling(element.item.contact)}
                     name = "phone-alt"
                     size = {22}
@@ -235,14 +230,16 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
+    width: 250
   },
   button1: {
-    marginRight: 20,
+    marginRight: 25,
   },
   view: {
+    display: 'flex',
     backgroundColor: "rgba(0,0,0,0.1)",
-          padding: 18,
+          padding: 15,
           shadow: 20,
           marginBottom: 10,
           color: "white",
@@ -257,17 +254,25 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 5
+    marginLeft: 5,
   },
   view2: {
     display: 'flex',
     marginLeft: 20,
-    height: 75
+    display: 'flex',
+    flexDirection: 'row',
+    width: 350,
   },
   view3: {
     display: 'flex',
     flexDirection: 'row',
     marginTop: 10,
+  },
+  menuIcon: {
+    color: 'blue'
+  },
+  callIcon: {
+    color: 'green'
   },
   close: {
     // width: '100%',
