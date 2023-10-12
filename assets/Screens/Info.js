@@ -27,9 +27,8 @@ export default class Home extends React.Component {
       >
         <View
           style={{
-            height: 140,
+            height: 150,
             width: "100%",
-            paddingHorizontal: 35,
           }}
         >
           <View
@@ -40,18 +39,13 @@ export default class Home extends React.Component {
               alignItems: "center",
             }}
           >
-            
-            <Text
+            <Image
               style={{
-                alignItems: "flex-end",
-                fontFamily: "Bold",
-                fontSize: 18,
-                color: "#FFF",
-                fontWeight: 800,
+                height:200,
+                width:"100%"
               }}
-            >
-              Birla Institute of Applied Sciences, Bhimtal
-            </Text>
+              source={{uri:"https://www.birlainstitute.co.in/Pictures/img-building.webp"}}
+            />
           </View>
         </View>
 
