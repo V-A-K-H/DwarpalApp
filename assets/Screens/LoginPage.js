@@ -40,6 +40,7 @@ function LoginPage() {
     }
     catch (err) {
       console.log("the following are encountered", err)
+      Alert.alert(err)
     }
 
   }

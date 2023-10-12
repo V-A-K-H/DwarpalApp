@@ -57,14 +57,28 @@ const ResData = () => {
 
     },
     {
-      name: "Variety Sweets and Restaurant",
+      name: "Brownies",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
     },
     {
-      name: "Chai Shai Castle",
+      name: "Double Burner - Cafe and Restaurant Bhimtal",
+      img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
+      contact: 9582543696,
+      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
+
+    },
+    {
+      name: "Pizza Bite",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
+
+    },
+    {
+      name: "Machan Restaurant Bhimtal - Branch of Nainital",
       img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
       contact: 9582543696,
       menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
@@ -78,10 +92,10 @@ const ResData = () => {
 
     },
     {
-      name: "Chai Shai Castle",
-      img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
-      contact: 9582543696,
-      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
     },
     {
@@ -91,7 +105,20 @@ const ResData = () => {
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
     },
+    {
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
 
+    },
+    {
+      name: "Variety Sweets and Restaurant",
+      img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+      contact: 70,
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
+
+    }
   ];
 
 
