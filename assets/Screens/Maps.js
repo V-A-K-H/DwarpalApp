@@ -25,13 +25,21 @@
 //   }
 // }
 
-
-import { FlatList, Button, StyleSheet, Modal, Text, Image, View, Linking } from 'react-native';
-import { useState } from 'react';
-import { IconButton } from 'react-native-paper';
+import {
+  FlatList,
+  Button,
+  StyleSheet,
+  Modal,
+  Text,
+  Image,
+  View,
+  Linking,
+} from "react-native";
+import { useState } from "react";
+import { IconButton } from "react-native-paper";
 import { FontAwesome5 } from "@expo/vector-icons";
 // import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from "react-native-gesture-handler";
 // import { ReactBingmaps } from 'react-bingmaps';
 // import BingMapsView from 'react-native-bing-maps';
 
@@ -47,168 +55,222 @@ const ResData = () => {
       name: "Chai Shai Castle",
       img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
       contact: 9582543696,
-      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
-
+      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png",
     },
     {
       name: "Variety Sweets and Restaurant",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Brownies",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Double Burner - Cafe and Restaurant Bhimtal",
       img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
       contact: 9582543696,
-      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
-
+      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png",
     },
     {
       name: "Pizza Bite",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Machan Restaurant Bhimtal - Branch of Nainital",
       img: "https://img.restaurantguru.com/r8ec-Chai-Shai-Castle-meat.jpg",
       contact: 9582543696,
-      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png"
-
+      menu: "https://snack-web-player.s3.us-west-1.amazonaws.com/v2/48/assets/src/react-native-logo.png",
     },
     {
       name: "Variety Sweets and Restaurant",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Variety Sweets and Restaurant",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Variety Sweets and Restaurant",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Variety Sweets and Restaurant",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
       name: "Variety Sweets and Restaurant",
       img: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
       contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg"
-
-    }
+      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
+    },
   ];
 
-
-
   const calling = (contact) => {
-
     Linking.openURL(`tel:${contact}`);
-  }
-  
-  return (<>
-  {/* <View>
+  };
+
+  return (
+    <>
+      {/* <View>
   <BingMapsView
         credentialsKey="AgRK3oshIVseQ4Gc61ETyaoRktQzuZqxwlisGgE5PqRfuJQScqSC-kyC8iepNJy3"
         mapLocation={{ lat: 12.9010875, long: 77.6095084, zoom: 15 }}
         style={styles.box}
       />
   </View> */}
-    
-    <ScrollView style={{
-            paddingBottom:100,
-            paddingLeft: 10,
-            paddingTop: 5,
-            paddingRight: 10,
-            backgroundColor: "white",
-          }}>
-            <Text style={{ fontSize: 22, marginBottom:15, fontWeight: "700", alignSelf:'center', }}>
-            Restraunts you may visit
-          </Text>
-    <FlatList
-      data={names}
-      renderItem={(element) => {
-        const isItemSelected = selectedItem === element.item.name;
-        
-        return (
-          <>
 
-            <View style={styles.view}>
-              {/* <View style={styles.view1}>
-                <Image style={styles.image}
-                  source={{
-                    uri: `${element.item.img}`
-                  }}
-                />
-              </View> */}
-              <View style={styles.view2}>
-                <Text style={styles.name}>{element.item.name.length > 20
-                  ? `${element.item.name.substring(0, 20)}...`
-                  : element.item.name}
-                </Text>
-                <View style={styles.view3}>
-                  <View style={styles.button1}>
-                    < FontAwesome5 style = {styles.menuIcon}
-                      name ="bars"
-                      size={22}
-                      color= 'black'
+      <ScrollView
+        style={{
+          height: "100%",
+          backgroundColor: "#154785",
+        }}
+      >
+        <View
+          style={{
+            height: 140,
+            width: "100%",
+            paddingHorizontal: 35,
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                alignItems: "flex-end",
+                fontFamily: "Bold",
+                fontSize: 18,
+                color: "#FFF",
+                fontWeight: 800,
+              }}
+            >
+              Birla Institute of Applied Sciences, Bhimtal
+            </Text>
+          </View>
+        </View>
+        <View
+          style={{
+            backgroundColor: "#eeeeee",
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+            paddingBottom: 75,
+            paddingTop:30,
+            paddingHorizontal: 20,
+          }}
+        >
+        <Text
+              style={{
+                fontFamily: "Bold",
+                fontSize: 18,
+                color: "black",
+                fontWeight: 600,
+                margin:15,
+                marginTop:2
+              }}
+            >
+              Hotel Menu
+            </Text>
+          <FlatList
+            data={names}
+            renderItem={(element) => {
+              const isItemSelected = selectedItem === element.item.name;
+
+              return (
+                <>
+                  <View
+                    style={{
+                      backgroundColor: "white",
+                      padding: 20,
+                      shadow: 30,
+                      marginBottom: 10,
+                      color: "white",
+                      borderRadius: 10,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      // elevation: for android
+                    }}
+                  >
+                    <Text
+                      style={{
+                        color: "black",
+                        fontSize: 17,
+                        fontWeight: "400",
+                        flex: 1,
+                        width: 100,
+                      }}
+                    >
+                      {element.item.name}
+                    </Text>
+                    <Image
+                      style={{
+                        height: 50,
+                        width: 50,
+                        marginHorizontal: 10,
+                      }}
+                      source={require(".././Icons/menu.gif")}
                       onPress={() => setSelectedItem(element.item.name)}
-                    ></FontAwesome5>  
-                  </View>
+                    />
 
-                  <View style = {styles.button1} >
-                  <FontAwesome5 style = {styles.callIcon}
-                    onPress={() => calling(element.item.contact)}
-                    name = "phone-alt"
-                    size = {22}
-                    Color = "black"
-                  ></FontAwesome5>
+                    <Image
+                      style={{
+                        height: 50,
+                        width: 50,
+                        marginHorizontal: 10,
+                      }}
+                      source={require(".././Icons/telephone.gif")}
+                      onPress={() => calling(element.item.contact)}
+                    />
                   </View>
-                </View>
-
-              </View>
-            </View>
-            {isItemSelected && (
-                <View style={styles.container}>
-                  <Modal animationType="slide" transparent={true} visible={isItemSelected}>
-                    <View style={styles.modalContainer}>
-                      <Image source={{ uri: element.item.menu }} style={styles.menu} />
-                      <FontAwesome5
-                       name ="times-circle" Color = 'red' size = {35} style={styles.close} onPress={closeImage} />
+                  {isItemSelected && (
+                    <View style={styles.container}>
+                      <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={isItemSelected}
+                      >
+                        <View style={styles.modalContainer}>
+                          <Image
+                            source={{ uri: element.item.menu }}
+                            style={styles.menu}
+                          />
+                          <FontAwesome5
+                            name="times-circle"
+                            Color="red"
+                            size={35}
+                            style={styles.close}
+                            onPress={closeImage}
+                          />
+                        </View>
+                      </Modal>
                     </View>
-                  </Modal>
-                </View>
-              )}
-          </>
-        );
-      }}
-      keyExtractor={(item) => item.name}
-    />
-    </ScrollView>
-  </>
+                  )}
+                </>
+              );
+            }}
+            keyExtractor={(item) => item.name}
+          />
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -218,80 +280,75 @@ const styles = StyleSheet.create({
     height: 200,
   },
   image: {
-    height: '80%',
+    height: "80%",
     width: 120,
   },
   menu: {
     height: 450,
     width: 350,
-    alignSelf: 'center',
-    justifyContent: 'center',
+    alignSelf: "center",
+    justifyContent: "center",
   },
   name: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: 'black',
-    width: 250
+    color: "black",
+    width: "60%",
   },
   button1: {
     marginRight: 25,
   },
   view: {
-    display: 'flex',
+    display: "flex",
     backgroundColor: "rgba(0,0,0,0.1)",
-          padding: 15,
-          shadow: 20,
-          marginBottom: 10,
-          color: "white",
-          borderRadius: 10,
-          marginBottom: 12,
-          flexDirection: "row",
-          // alignItems: "center",
-          // paddingBottom: 30,
-
+    padding: 15,
+    shadow: 20,
+    marginBottom: 10,
+    color: "white",
+    borderRadius: 10,
+    marginBottom: 12,
+    flexDirection: "row",
+    // alignItems: "center",
+    // paddingBottom: 30,
   },
   view1: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     marginLeft: 5,
   },
   view2: {
-    display: 'flex',
-    marginLeft: 20,
-    display: 'flex',
-    flexDirection: 'row',
-    width: 350,
+    display: "flex",
+    marginLeft: 10,
+    flexDirection: "row",
+    width: 380,
   },
   view3: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     marginTop: 10,
   },
   menuIcon: {
-    color: 'blue'
+    color: "blue",
   },
   callIcon: {
-    color: 'green'
+    color: "green",
   },
   close: {
     // width: '100%',
-    alignSelf: 'center',
-    color: 'red'
+    alignSelf: "center",
+    color: "red",
   },
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
   modalContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: 50,
-  }
-
-
+  },
 });
 
 export default ResData;

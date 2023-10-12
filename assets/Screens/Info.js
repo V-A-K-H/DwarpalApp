@@ -25,35 +25,7 @@ export default class Home extends React.Component {
           backgroundColor: "#154785",
         }}
       >
-        <View
-          style={{
-            height: 140,
-            width: "100%",
-            paddingHorizontal: 35,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            
-            <Text
-              style={{
-                alignItems: "flex-end",
-                fontFamily: "Bold",
-                fontSize: 18,
-                color: "#FFF",
-                fontWeight: 800,
-              }}
-            >
-              Birla Institute of Applied Sciences, Bhimtal
-            </Text>
-          </View>
-        </View>
+        
 
         <View
           style={{
