@@ -245,21 +245,27 @@ const ResData = () => {
                     <View style={styles.container}>
                       <Modal
                         animationType="slide"
-                        transparent={true}
+                        transparent={false}
                         visible={isItemSelected}
                       >
                         <View style={styles.modalContainer}>
-                          <Image
-                            source={{ uri: element.item.menu }}
-                            style={styles.menu}
-                          />
-                          <FontAwesome5
-                            name="times-circle"
+                        <View style = {{display: 'flex', flexDirection: 'row', paddingHorizontal: 10, marginBottom: 100, backgroundColor: '#FFF',}}>
+                        <FontAwesome5
+                            name="less-than"
                             Color="red"
                             size={35}
                             style={styles.close}
                             onPress={closeImage}
                           />
+                          <Text style = {{fontSize: 22, display: 'flex', alignItems: 'center', backgroundColor: 'white'}}>
+                          {element.item.name}
+                          </Text>
+                        </View>
+                          <Image
+                            source={{ uri: element.item.menu }}
+                            style={styles.menu}
+                          />
+                          
                         </View>
                       </Modal>
                     </View>
@@ -286,9 +292,12 @@ const styles = StyleSheet.create({
   },
   menu: {
     height: 450,
-    width: 350,
+    width: '100%',
     alignSelf: "center",
     justifyContent: "center",
+    marginTop: 10,
+    marginBottom: 10,
+
   },
   name: {
     fontSize: 20,
@@ -337,19 +346,37 @@ const styles = StyleSheet.create({
   close: {
     // width: '100%',
     alignSelf: "center",
-    color: "red",
+    color: "grey",
+    marginRight: 20,
+    
+
+    
+
   },
   container: {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    backgroundColor: '#000',
   },
   modalContainer: {
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 50,
-    flex: 1,
+    // alignItems: "center",
+    // justifyContent: "center",
+    // marginTop: 100,
+    // paddingTop: 10,
+    padding: 10,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: -2,
+    // },
+    // shadowOpacity: 0.8,
+    // shadowRadius: 4,
+    // elevation: 5,
+
   },
 });
 
