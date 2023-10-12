@@ -182,7 +182,7 @@ const ResData = () => {
                 marginTop:2
               }}
             >
-              Hotel Menu
+              Restaurant Menu
             </Text>
           <FlatList
             data={names}
