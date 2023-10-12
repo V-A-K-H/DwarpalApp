@@ -47,7 +47,7 @@ export default class Home extends React.Component {
                 fontFamily: "Bold",
                 fontSize: 18,
                 color: "#FFF",
-                fontWeight: 800
+                fontWeight: 800,
               }}
             >
               Birla Institute of Applied Sciences, Bhimtal
@@ -58,14 +58,14 @@ export default class Home extends React.Component {
         <View
           style={{
             backgroundColor: "#FFF",
-            borderTopLeftRadius: 40,
-            borderTopRightRadius: 40,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
             paddingBottom: 20,
             paddingHorizontal: 35,
             padding: 30,
           }}
         >
-          <Text style={{ fontSize: 18, margin: 14, fontWeight: "700" }}>
+          <Text style={{ fontSize: 18, margin: 15, fontWeight: "700" }}>
             Hostel Wardens
           </Text>
           <Card

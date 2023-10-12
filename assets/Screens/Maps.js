@@ -28,6 +28,9 @@
 
 import { FlatList, Button, StyleSheet, Modal, Text, Image, View, Linking } from 'react-native';
 import { useState } from 'react';
+import { IconButton } from 'react-native-paper';
+import { FontAwesome5 } from "@expo/vector-icons";
+import { ScrollView } from 'react-native-gesture-handler';
 // import { ReactBingmaps } from 'react-bingmaps';
 // import BingMapsView from 'react-native-bing-maps';
 
@@ -107,6 +110,16 @@ const ResData = () => {
       />
   </View> */}
     
+    <ScrollView style={{
+            paddingBottom:100,
+            paddingLeft: 10,
+            paddingTop: 5,
+            paddingRight: 10,
+            backgroundColor: "white",
+          }}>
+            <Text style={{ fontSize: 22, marginBottom:15, fontWeight: "700", alignSelf:'center', }}>
+            Restraunts you may visit
+          </Text>
     <FlatList
       data={names}
       renderItem={(element) => {
@@ -130,33 +143,36 @@ const ResData = () => {
                 </Text>
                 <View style={styles.view3}>
                   <View style={styles.button1}>
-                  <Button
-                    
+                  <IconButton  
                     onPress={() => setSelectedItem(element.item.name)}
-                    title="Menu"
-                    color="#800080"
+                    icon="menu"
+                  //   icon={<FontAwesome5
+                  //     name="home"
+                  //     size={22}
+                  //     color= 'black'
+                  //   ></FontAwesome5>}
+                    iconColor="black"
                   />
                   </View>
 
                   <View style = {styles.button1} >
-                  <Button
+                  <IconButton
                     onPress={() => calling(element.item.contact)}
-                    title="Call Now"
-                    color="green"
+                    icon= "call-split"
+                    iconColor = "black"
                   />
                   </View>
-
-
                 </View>
 
               </View>
             </View>
             {isItemSelected && (
                 <View style={styles.container}>
-                  <Modal animationType="slide" transparent={false} visible={isItemSelected}>
+                  <Modal animationType="slide" transparent={true} visible={isItemSelected}>
                     <View style={styles.modalContainer}>
                       <Image source={{ uri: element.item.menu }} style={styles.menu} />
-                      <Button title="Close" color = 'red' style={styles.close} onPress={closeImage} />
+                      <IconButton
+                       icon="cancel" iconColor = 'red' size = {28} style={styles.close} onPress={closeImage} />
                     </View>
                   </Modal>
                 </View>
@@ -166,6 +182,7 @@ const ResData = () => {
       }}
       keyExtractor={(item) => item.name}
     />
+    </ScrollView>
   </>
   );
 };
@@ -194,19 +211,16 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   view: {
-    width: '100%',
-    marginTop: 10,
-    display: 'flex',
-    flexDirection: 'row',
-    height: 90,
-    marginLeft: 5,
-    marginRight: 5,
-    shadowOffset: {width: 2, height: 2},
-    shadowOpacity: 0.8,
-    shadowRadius: 10,
-    shadowColor: 'black',
-    backgroundColor: '  #FFF',
-    alignSelf: 'center'
+    backgroundColor: "rgba(0,0,0,0.1)",
+          padding: 18,
+          shadow: 20,
+          marginBottom: 10,
+          color: "white",
+          borderRadius: 10,
+          marginBottom: 12,
+          flexDirection: "row",
+          // alignItems: "center",
+          // paddingBottom: 30,
 
   },
   view1: {
@@ -231,7 +245,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
   },
   modalContainer: {
     alignItems: 'center',
