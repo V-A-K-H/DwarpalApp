@@ -92,25 +92,15 @@ const ResData = () => {
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
-      name: "Variety Sweets and Restaurant",
-      contact: 70,
+      name: "UK-04",
+      contact: 9456728880,
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
     },
     {
-      name: "Variety Sweets and Restaurant",
-      contact: 70,
+      name: "Dajyu's",
+      contact: 9205176461,
       menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
-    },
-    {
-      name: "Variety Sweets and Restaurant",
-      contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
-    },
-    {
-      name: "Variety Sweets and Restaurant",
-      contact: 70,
-      menu: "https://img.restaurantguru.com/rc43-Variety-Sweets-and-Restaurant-exterior-2023-01.jpg",
-    },
+    }
   ];
 
   const calling = (contact) => {
