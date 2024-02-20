@@ -1,12 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Dropdown } from "react-native-element-dropdown";
-// import AntDeisgn  from "@ant-design/react-native"
+
 import AntDesign from "react-native-vector-icons/AntDesign"
-
-
-// import AntDesign from "@expo/vector-icons/AntDesign";
-
-
 import {
   ImageBackground,
   Dimensions,
@@ -35,34 +30,34 @@ const data = [
 const Profile = () => {
   const [userData, setUserData] = useState(null);
   const [value, setValue] = useState(null);
-  // const fetchData = async () => {
-  //   const token = await EncryptedStorage.getItem("sessionUser");
-  //   console.log(token);
-  //   try {
-  //     const result = await fetch(
-  //       `${API}/StudentInfo/columns/name phonenum rollnum fathername fatherphonenum branch year photolink`,
-  //       {
-  //         method: "GET",
-  //         mode: "cors",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           "x-auth-token": token,
-  //         },
-  //       }
-  //     );
-  //     const response = await result.json();
-  //     setUserData(response[0]);
-  //   } catch (err) {
-  //     console.log(err);
-  //     window.alert(err);
-  //   }
-  // };
-  useEffect(async() => {
-    const res=await AsyncStorage.getItem('user')
-    console.log("The loaded user is",res)
-    setUserData(JSON.parse(res))
+  const [disable,setDisable]=useState(false);
+  const checkPurpose=async(item)=> {
+    try {
+      console.log("Json stringiyed item label is given by",JSON.stringify(item.label))
+      await AsyncStorage.setItem('purpose',JSON.stringify(item.label))
+      const res=await AsyncStorage.getItem('purpose')
+      console.log(`Async storage value of purpose tag is ${res}`)
+      setValue(res)
+      setDisable(true)
+    }
+    catch (e) {
+      console.warn(e)
+    }
+  }
+  const getUser = async () => {
+    try {
+      const res = await AsyncStorage.getItem('user')
+      console.log("The loaded user is", res)
+      setUserData(JSON.parse(res))
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
+  useEffect(() => {
+    getUser()
   }, []);
-
+  console.log(`disable ${disable} \n UserData ${userData} \n value ${value}`)
   if (!userData) {
     return (
       <View
@@ -145,14 +140,16 @@ const Profile = () => {
           iconStyle={styles.iconStyle}
           data={data}
           search
+          // disable={disable}
           maxHeight={300}
           labelField="label"
           valueField="value"
-          placeholder="Purpose"
+          placeholder={value}
           searchPlaceholder="Search..."
           value={value}
           onChange={(item) => {
-            setValue(item.value);
+            console.log("item selected is ",item)
+            checkPurpose(item)
           }}
           renderLeftIcon={() => (
             <AntDesign
@@ -161,7 +158,7 @@ const Profile = () => {
               name="Safety"
               size={20}
             />
-            
+
           )}
         />
       </View>

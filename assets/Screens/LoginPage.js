@@ -20,7 +20,6 @@ function LoginPage({setAuth}) {
   const [loaded,setLoaded]=React.useState(false)
   const fetchData = async () => {
     const token = await EncryptedStorage.getItem("sessionUser");
-    console.log(token);
     try {
       const result = await fetch(
         `${API}/StudentInfo/columns/name phonenum rollnum fathername fatherphonenum branch year photolink`,
@@ -35,6 +34,8 @@ function LoginPage({setAuth}) {
       );
       const response = await result.json();
       await AsyncStorage.setItem("user",JSON.stringify(response[0]))
+      // Async storage support storing null as a value so empty string instead as a false value
+      await AsyncStorage.setItem("purpose","")
     } catch (err) {
       console.log(err);
       window.alert(err);
@@ -42,7 +43,6 @@ function LoginPage({setAuth}) {
   };
   const Login = async () => {
     const auth="user"
-    
     try {
       const result = await fetch(`${API}/SignIn`, {
         method: "POST",
@@ -52,15 +52,13 @@ function LoginPage({setAuth}) {
         },
         body: JSON.stringify({ email,password}),
       })
-      console.log(result)
       const response = await result.json()
-      
       if (response.errors) Alert.alert("error",response.errors[0].msg)
       if (response.jwtToken) {
         await EncryptedStorage.setItem('sessionUser', response.jwtToken)
         await EncryptedStorage.setItem('Auth', auth)
-        setLoaded(true)
         await fetchData()
+        setLoaded(true)
         setAuth(true)
       }
     }
