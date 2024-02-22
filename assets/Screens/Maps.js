@@ -1,29 +1,3 @@
-// import React from "react";
-// import {
-//   View,
-//   Text,
-//   Image,
-//   ImageBackground,
-//   TouchableOpacity,
-// } from "react-native";
-
-// export default class Home extends React.Component {
-//   render() {
-//     return (
-//         <View style={{ alignItems: "center" ,
-//         backgroundColor:"white",
-//         height:"100%"
-//     }}>
-//         <Image
-//             source={"https://cdn.dribbble.com/users/1791559/screenshots/4465351/wip.gif"}
-//             style={{ height: 600, width: 600 }}
-//         />
-//         <Text>Work in Progress...</Text>
-//     </View>
-//     );
-
-//   }
-// }
 
 import {
   FlatList,
@@ -133,10 +107,12 @@ const ResData = () => {
       />
   </View> */}
 
-      <ScrollView
+      <View
         style={{
-          height: "100%",
-          backgroundColor: "#154785",
+          backgroundColor: "#eeeeee"
+          /*
+          with the height being 75%, #154785 is showing in the bottom hence changing the color to white
+           backgroundColor: "#154785",*/
         }}
       >
         <View
@@ -164,10 +140,11 @@ const ResData = () => {
         </View>
         <View
           style={{
+            height: "75%",
             backgroundColor: "#eeeeee",
             borderTopLeftRadius: 30,
             borderTopRightRadius: 30,
-            paddingBottom: 75,
+            paddingBottom:50,
             paddingTop:30,
             paddingHorizontal: 20,
           }}
@@ -262,10 +239,9 @@ const ResData = () => {
                 </>
               );
             }}
-
           />
         </View>
-      </ScrollView>
+      </View>
     </>
   );
 };

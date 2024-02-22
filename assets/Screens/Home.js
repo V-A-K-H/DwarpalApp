@@ -33,10 +33,8 @@ const Profile = () => {
   const [disable,setDisable]=useState(false);
   const checkPurpose=async(item)=> {
     try {
-      console.log("Json stringiyed item label is given by",JSON.stringify(item.label))
       await AsyncStorage.setItem('purpose',JSON.stringify(item.label))
       const res=await AsyncStorage.getItem('purpose')
-      console.log(`Async storage value of purpose tag is ${res}`)
       setValue(res)
       setDisable(true)
     }
@@ -47,17 +45,15 @@ const Profile = () => {
   const getUser = async () => {
     try {
       const res = await AsyncStorage.getItem('user')
-      console.log("The loaded user is", res)
       setUserData(JSON.parse(res))
     }
     catch (e) {
-      console.log(e)
+      console.error(e)
     }
   }
   useEffect(() => {
     getUser()
   }, []);
-  console.log(`disable ${disable} \n UserData ${userData} \n value ${value}`)
   if (!userData) {
     return (
       <View
@@ -125,6 +121,7 @@ const Profile = () => {
 
       <View
         style={{
+          color: 'black',
           backgroundColor: "white",
           borderRadius: 40,
           paddingVertical: 20,
@@ -133,6 +130,7 @@ const Profile = () => {
         }}
       >
         <Dropdown
+        
           style={styles.dropdown}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
@@ -140,6 +138,7 @@ const Profile = () => {
           iconStyle={styles.iconStyle}
           data={data}
           search
+          itemTextStyle={{color: "black"}}
           // disable={disable}
           maxHeight={300}
           labelField="label"
@@ -148,7 +147,6 @@ const Profile = () => {
           searchPlaceholder="Search..."
           value={value}
           onChange={(item) => {
-            console.log("item selected is ",item)
             checkPurpose(item)
           }}
           renderLeftIcon={() => (
@@ -164,6 +162,7 @@ const Profile = () => {
       </View>
       <View
         style={{
+          color: 'black',
           backgroundColor: "white",
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
@@ -182,11 +181,13 @@ const Profile = () => {
           }}
         >
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input1}
             placeholder="Phone Number :"
           />
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input}
             placeholder={userData.phonenum ? `${userData.phonenum}` : "Phone Number"}
@@ -201,11 +202,13 @@ const Profile = () => {
           }}
         >
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input1}
             placeholder={"Roll Number :"}
           />
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input}
             placeholder={userData.rollnum ? `${userData.rollnum}` : "Roll Number"}
@@ -220,11 +223,13 @@ const Profile = () => {
           }}
         >
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input1}
             placeholder={"Branch :"}
           />
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input}
             placeholder={userData.branch ? `${userData.branch}` : "branch"}
@@ -239,11 +244,13 @@ const Profile = () => {
           }}
         >
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input1}
             placeholder={"Year :"}
           />
           <TextInput
+                      placeholderTextColor="black"
             editable={false}
             style={styles.input}
             placeholder={userData.year ? `${userData.year}` : "Year"}
@@ -258,11 +265,13 @@ const Profile = () => {
           }}
         >
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input1}
             placeholder={"Father Name :"}
           />
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input}
             placeholder={userData.fathername ? userData.fathername : "Father Name"}
@@ -277,11 +286,13 @@ const Profile = () => {
           }}
         >
           <TextInput
+                    placeholderTextColor="black"
             editable={false}
             style={styles.input1}
             placeholder={"Guardian No :"}
           />
           <TextInput
+          placeholderTextColor="black"
             editable={false}
             style={styles.input}
             placeholder={userData.fatherphonenum ? `${userData.fatherphonenum}` : "Father Phone Number"}
@@ -297,6 +308,7 @@ export default Profile;
 
 const styles = StyleSheet.create({
   dropdown: {
+    color: "black",
     margin: 10,
     height: 50,
     borderBottomColor: "black",
@@ -306,9 +318,11 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   placeholderStyle: {
+    color: "black",
     fontSize: 16,
   },
   selectedTextStyle: {
+    color: "black",
     fontSize: 16,
   },
   iconStyle: {
@@ -316,10 +330,13 @@ const styles = StyleSheet.create({
     height: 20,
   },
   inputSearchStyle: {
+    color: "black",
     height: 40,
     fontSize: 16,
   },
   input: {
+    color: "black",
+    textShadowColor: "black",
     height: 50,
     width: "50%",
     fontSize: 16,
@@ -327,18 +344,18 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderBottomWidth: 2,
     padding: 10,
-    color: "black",
     textTransform: "uppercase",
   },
   input1: {
+    color: "black",
+    textShadowColor: "black",
     height: 50,
     width: "50%",
     fontSize: 16,
     marginVertical: 10,
     borderWidth: 0,
-    borderBottomWidth: 2,
+    borderBottomWidth: 2, 
     padding: 10,
-    color: "black",
     fontWeight: "600"
 
   },

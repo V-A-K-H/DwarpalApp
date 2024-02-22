@@ -19,6 +19,7 @@
     "@react-native-async-storage/async-storage": "^1.19.3",
     "@react-navigation/bottom-tabs": "^6.5.9",
     "@react-navigation/native": "^6.1.8",
+    "expo-barcode-scanner": "^12.9.3",
     "font-awesome": "^4.7.0",
     "npx": "^10.2.2",
     "react": "18.2.0",

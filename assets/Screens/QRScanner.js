@@ -6,30 +6,35 @@ import { View } from "react-native";
 import { Camera, useCodeScanner, useCameraPermission, useCameraDevice } from 'react-native-vision-camera'
 import { useFocusEffect } from "@react-navigation/native";
 import { PermissionsAndroid, Platform } from "react-native";
+import { Camera as VisionCamera } from "react-native-vision-camera";
 export default QrScanner=()=> {
-  
-  const { hasPermission, requestPermission } = useCameraPermission()
-  const [isScanned,setScanned]=useState(null)
-  const isActive=true
   const device = useCameraDevice('back')
+    const { hasPermission, requestPermission } = useCameraPermission()
+  useEffect(()=> {
+    requestPermission()
+  },[])
+
+  const [isScanned, setScanned] = useState(false)
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
     onCodeScanned: (codes) => {
-      setScanned(codes.length)
-      console.log(`Scanned ${codes} codes!`)
+      setScanned(true)
     }
   })
+  if (device==null) {
+    return (<Text>
+      No Camera device found
+    </Text>)
+  }
   if (isScanned) {
     return (
-      <Text style={{color:"red"}}>
-        {isScanned}
+      <Text style={{ color:"black",marginHorizontal:20, marginVertical:20,}}>
+        Successfully scanned Qr Code 
       </Text>
     )
-  } 
+  }
   return (
-  <View>
-
-  {hasPermission &&<Camera />}
-  
-  </View>)
+      <VisionCamera device={device} style={{  marginHorizontal:20, marginVertical:20, height: '50%', width: "auto" }} isActive={true} codeScanner={codeScanner} />
+      
+      )
 }

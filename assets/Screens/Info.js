@@ -46,10 +46,11 @@ export default class Home extends React.Component {
                 height:200,
                 width:"100%",
                 alignItems: "flex-end",
+                /*REACT NATIVE DOESN'T SUPPORT
                 fontFamily: "Bold",
                 fontSize: 18,
                 color: "#FFF",
-                fontWeight: "800",
+                fontWeight: "800",*/
               }}
               source={{uri:"https://www.birlainstitute.co.in/Pictures/img-building.webp"}}
             />
@@ -66,7 +67,7 @@ export default class Home extends React.Component {
             padding: 30,
           }}
         >
-          <Text style={{ fontSize: 18, margin: 15, fontWeight: "700" }}>
+          <Text style={{ color: "black", fontSize: 18, margin: 15, fontWeight: "700" }}>
             Hostel Wardens
           </Text>
           <Card
@@ -85,8 +86,8 @@ export default class Home extends React.Component {
                 alignItems: "center",
               }}
             >
-              <Text>
-                <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              <Text style={{color: "black"}}>
+                <Text style={{ color: "black", fontSize: 16, fontWeight: "700" }}>
                   Sandesh Tripathi
                 </Text>
                 {"\n"}
@@ -116,7 +117,7 @@ export default class Home extends React.Component {
                 alignItems: "center",
               }}
             >
-              <Text>
+              <Text style={{color: "black"}}>
                 <Text style={{ fontSize: 16, fontWeight: "700" }}>
                   Abhay Sharma
                 </Text>
@@ -145,7 +146,7 @@ export default class Home extends React.Component {
                 alignItems: "center",
               }}
             >
-              <Text>
+              <Text style={{color: "black"}}>
                 <Text style={{ fontSize: 16, fontWeight: "700" }}>
                   Shilpi Bisht
                 </Text>
@@ -174,7 +175,7 @@ export default class Home extends React.Component {
                 alignItems: "center",
               }}
             >
-              <Text>
+              <Text style={{color: "black"}}>
                 <Text style={{ fontSize: 16, fontWeight: "700" }}>
                   Neeraj Bisht
                 </Text>
@@ -242,10 +243,10 @@ export default class Home extends React.Component {
                 alignItems: "center",
               }}
             >
-            <Text style={{ fontSize: 18, margin: 4, fontWeight: "700" }}>
+            <Text style={{ color: "black",fontSize: 18, margin: 4, fontWeight: "700" }}>
             About Dwarpal
           </Text>
-              <Text style={{ fontSize: 15, margin: 4, fontWeight: "500" ,textAlign: 'center'}}>
+              <Text style={{ color: "black",fontSize: 15, margin: 4, fontWeight: "500" ,textAlign: 'center'}}>
             The security system uses QR code scanning to track thge entry and exit of students in 
             college, maintaing a record of their in and out history for monitoring a record of their
              in and out history for monitoring and security purpose.

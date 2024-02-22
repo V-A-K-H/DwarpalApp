@@ -37,7 +37,7 @@ function LoginPage({setAuth}) {
       // Async storage support storing null as a value so empty string instead as a false value
       await AsyncStorage.setItem("purpose","")
     } catch (err) {
-      console.log(err);
+      console.error(err);
       window.alert(err);
     }
   };
@@ -63,7 +63,7 @@ function LoginPage({setAuth}) {
       }
     }
     catch (err) {
-      console.log("the following are encountered", err)
+      console.error("the following are encountered", err)
       Alert.alert("error",err)
       setAuth(false)
     }
@@ -125,12 +125,14 @@ const styles = StyleSheet.create({
 
   //text styles
   heading1: {
+    color:"black",
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
   },
 
   para1: {
+    color:"black",
     fontSize: 18,
     opacity: 0.7,
     textAlign: "center",

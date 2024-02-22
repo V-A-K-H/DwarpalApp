@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { NavigationContainer, useFocusEffect } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {useCameraPermission,useCameraDevice,useCodeScanner } from "react-native-vision-camera";
+import { useCameraPermission, useCameraDevice, useCodeScanner } from "react-native-vision-camera";
 import { Camera as VisionCamera } from "react-native-vision-camera";
 import Camera from "./assets/camera.png";
 import Home from "./assets/Screens/Home";
@@ -15,9 +15,9 @@ import LoginPage from "./assets/Screens/LoginPage"
 import EncryptedStorage from 'react-native-encrypted-storage';
 import QRScanner from "./assets/Screens/QRScanner";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const Tab = createBottomTabNavigator();
 export default function App() {
-  console.log("code running")
   const [loading, setLoading] = React.useState(true);
   const [auth, setAuth] = React.useState(false)
 
@@ -41,45 +41,20 @@ export default function App() {
         backgroundColor: '#eeeeee'
       }}>
         <Image
-          source={{ uri: "https  ://cdn.dribbble.com/users/711094/screenshots/3288010/sean_tiffonnet_loader_360learning.gif" }}
+          source={{ uri: "https://cdn.dribbble.com/users/711094/screenshots/3288010/sean_tiffonnet_loader_360learning.gif" }}
           style={{ height: 600, width: 600 }}
         />
       </View>
     );
   }
-  console.log(auth)
   if (!auth) {
     return (
       <LoginPage setAuth={setAuth} />
     )
 
   }
-  function CameraScreen() {
-    console.log("Rendering first time the camera screen")
-    const { hasPermission, requestPermission } = useCameraPermission()
-    const [isScanned, setScanned] = useState(null)
-    const isActive = true
-    const device = useCameraDevice('back')
-    const codeScanner = useCodeScanner({
-      codeTypes: ['qr', 'ean-13'],
-      onCodeScanned: (codes) => {
-        setScanned(codes.length)
-        console.log(`Scanned ${codes} codes!`)
-      }
-    })
-    if (isScanned) {
-      return (
-        <Text style={{ color: "red" }}>
-          {isScanned}
-        </Text>
-      )
-    }
-    console.log("Rendering")
   
-    return (
-        <VisionCamera device={device} style={{ marginTop: 50, height: 50, width: 50 }} isActive={isActive} codeScanner={codeScanner} />
-        )
-  }
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -151,12 +126,12 @@ export default function App() {
         ></Tab.Screen>
 
         <Tab.Screen
-
+        
           name={"camera"}
           component={CameraScreen}
           options={{
 
-            headerShown: false,
+    
             tabBarIcon: ({ focused }) => (
 
               <View
@@ -232,20 +207,22 @@ export default function App() {
 
 
 function HomeScreen() {
-  console.log("Screen Home")
   return (
     <Home />
   );
 }
 function TodoScreen() {
-  console.log("Screen Todo")
   return (
     <Todo />
   );
 }
-
+function CameraScreen() {
+  return (
+    <QRScanner/>
+  )
+}
 function MapsScreen() {
-  console.log("Screen Maps")
+
   return (
     <Maps />
   );
