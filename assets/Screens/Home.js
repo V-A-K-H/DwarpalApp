@@ -1,7 +1,4 @@
 import { React, useState, useEffect } from "react";
-import { Dropdown } from "react-native-element-dropdown";
-
-import AntDesign from "react-native-vector-icons/AntDesign"
 import {
   ImageBackground,
   Dimensions,
@@ -19,29 +16,9 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const w = Dimensions.get("window").width;
 const h = Dimensions.get("window").height;
-const data = [
-  { label: "Market", value: "1" },
-  { label: "Home", value: "2" },
-  { label: "Hospital", value: "3" },
-  { label: "Mandir", value: "4" },
-  { label: "Exam", value: "5" },
-];
-
 const Profile = () => {
   const [userData, setUserData] = useState(null);
-  const [value, setValue] = useState(null);
-  const [disable,setDisable]=useState(false);
-  const checkPurpose=async(item)=> {
-    try {
-      await AsyncStorage.setItem('purpose',JSON.stringify(item.label))
-      const res=await AsyncStorage.getItem('purpose')
-      setValue(res)
-      setDisable(true)
-    }
-    catch (e) {
-      console.warn(e)
-    }
-  }
+
   const getUser = async () => {
     try {
       const res = await AsyncStorage.getItem('user')
@@ -119,47 +96,6 @@ const Profile = () => {
         </LinearGradient>
       </ImageBackground>
 
-      <View
-        style={{
-          color: 'black',
-          backgroundColor: "white",
-          borderRadius: 40,
-          paddingVertical: 20,
-          marginTop: 20,
-          padding: 40,
-        }}
-      >
-        <Dropdown
-        
-          style={styles.dropdown}
-          placeholderStyle={styles.placeholderStyle}
-          selectedTextStyle={styles.selectedTextStyle}
-          inputSearchStyle={styles.inputSearchStyle}
-          iconStyle={styles.iconStyle}
-          data={data}
-          search
-          itemTextStyle={{color: "black"}}
-          // disable={disable}
-          maxHeight={300}
-          labelField="label"
-          valueField="value"
-          placeholder={value}
-          searchPlaceholder="Search..."
-          value={value}
-          onChange={(item) => {
-            checkPurpose(item)
-          }}
-          renderLeftIcon={() => (
-            <AntDesign
-              style={styles.icon}
-              color="black"
-              name="Safety"
-              size={20}
-            />
-
-          )}
-        />
-      </View>
       <View
         style={{
           color: 'black',
