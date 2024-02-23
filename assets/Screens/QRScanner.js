@@ -4,15 +4,22 @@ import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
 import API from "../../backendApi";
 import { View } from "react-native";
 import { Camera, useCodeScanner, useCameraPermission, useCameraDevice } from 'react-native-vision-camera'
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { PermissionsAndroid, Platform } from "react-native";
 import { Camera as VisionCamera } from "react-native-vision-camera";
-export default QrScanner=()=> {
+export default QrScanner = () => {
+  const isFocused=useIsFocused()
+  const [isCamera, setIsCamera] = useState(false)
+  useEffect(() => {
+    if (!isFocused) {
+      setIsCamera(false);
+    }
+  }, [isFocused])
   const device = useCameraDevice('back')
-    const { hasPermission, requestPermission } = useCameraPermission()
-  useEffect(()=> {
+  const { hasPermission, requestPermission } = useCameraPermission()
+  useEffect(() => {
     requestPermission()
-  },[])
+  }, [])
 
   const [isScanned, setScanned] = useState(false)
   const codeScanner = useCodeScanner({
@@ -21,20 +28,29 @@ export default QrScanner=()=> {
       setScanned(true)
     }
   })
-  if (device==null) {
+  if (device == null) {
     return (<Text>
       No Camera device found
     </Text>)
   }
   if (isScanned) {
     return (
-      <Text style={{ color:"black",marginHorizontal:20, marginVertical:20,}}>
-        Successfully scanned Qr Code 
+      <Text style={{ color: "black", marginHorizontal: 20, marginVertical: 20, }}>
+        Successfully scanned Qr Code
       </Text>
     )
   }
   return (
-      <VisionCamera device={device} style={{  marginHorizontal:20, marginVertical:20, height: '50%', width: "auto" }} isActive={true} codeScanner={codeScanner} />
-      
-      )
+    <View>
+      {isCamera
+        ?
+        <VisionCamera device={device} style={{ marginHorizontal: 20, marginVertical: 20, height: '50%', width: "auto" }} isActive={true} codeScanner={codeScanner} />
+        :
+        <TouchableOpacity onPress={() => setIsCamera(true)}>
+          <Text style={{ color: "black" }}>Scan</Text>
+        </TouchableOpacity>}
+    </View>
+
+
+  )
 }
