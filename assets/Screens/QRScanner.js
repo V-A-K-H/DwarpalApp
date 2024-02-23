@@ -9,12 +9,6 @@ import { PermissionsAndroid, Platform } from "react-native";
 import { Camera as VisionCamera } from "react-native-vision-camera";
 export default QrScanner = () => {
   const isFocused=useIsFocused()
-  const [isCamera, setIsCamera] = useState(false)
-  useEffect(() => {
-    if (!isFocused) {
-      setIsCamera(false);
-    }
-  }, [isFocused])
   const device = useCameraDevice('back')
   const { hasPermission, requestPermission } = useCameraPermission()
   useEffect(() => {
@@ -41,14 +35,12 @@ export default QrScanner = () => {
     )
   }
   return (
-    <View>
-      {isCamera
+    <View style={{height: "100%"}}>
+      {isFocused
         ?
-        <VisionCamera device={device} style={{ marginHorizontal: 20, marginVertical: 20, height: '50%', width: "auto" }} isActive={true} codeScanner={codeScanner} />
+        <VisionCamera device={device} style={{  height: '50%', width: "auto" }} isActive={true} codeScanner={codeScanner} />
         :
-        <TouchableOpacity onPress={() => setIsCamera(true)}>
-          <Text style={{ color: "black" }}>Scan</Text>
-        </TouchableOpacity>}
+        <Text>I am out of focus</Text>}
     </View>
 
 
